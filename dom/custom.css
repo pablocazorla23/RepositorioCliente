@@ -1,0 +1,13 @@
+.resaltado {
+  background-color: yellow;
+}
+
+.error {
+  color: red;
+  display: none; /* Oculto por defecto */
+}
+
+.completada {
+  text-decoration: line-through;
+  color: gray;
+}
