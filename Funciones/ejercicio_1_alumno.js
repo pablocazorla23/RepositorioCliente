@@ -125,22 +125,37 @@ document.getElementById('run-e8').addEventListener('click', function () {
 });
 
 // ======================================================
-// Ejercicio 9 - Funciones anidadas
+// Ejercicio 9 - Funciones anidadas y closures
 // ======================================================
 document.getElementById('run-e9').addEventListener('click', function () {
   const out = document.getElementById('out-e9');
 
+  // Función externa que crea el contador y devuelve la función interna
   function externa() {
     let contador = 0;
     function interna() {
       contador++;
       return contador;
     }
-    return interna();
+    return interna;
   }
 
-  const resultado = externa();
-  out.textContent = `Resultado: ${resultado} (La función interna accede a 'contador' gracias al closure)`;
+  // Creamos una instancia del closure (contador propio)
+  // Nota: si quisieras mantener el mismo contador entre clics, podrías declararlo fuera del listener.
+  const contar = externa();
+
+  // Llamamos varias veces para demostrar el closure
+  const resultado1 = contar();
+  const resultado2 = contar();
+  const resultado3 = contar();
+
+  out.innerHTML = `
+    <strong>Resultados:</strong><br>
+    Llamada 1 → ${resultado1}<br>
+    Llamada 2 → ${resultado2}<br>
+    Llamada 3 → ${resultado3}<br><br>
+    <em>La función interna “recuerda” el valor de 'contador' gracias al closure.</em>
+  `;
 });
 
 // ======================================================
