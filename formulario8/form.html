@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicios – Tema 8 con Bootstrap 5</title>
+	<!-- Bootstrap 5 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<style>
+		.card+.card {
+			margin-top: 1rem
+		}
+	</style>
+</head>
+
+<body class="bg-light">
+
+	<div class="container pgit 
+			<h1 class=" mb-4">Ejercicios - Tema 8: Validación de formularios</h1>
+		<p class="text-muted">Se mantiene el patrón de validación con <code>addEventListener('submit', …)</code> y
+			validación HTML5 donde corresponde.</p>
+		<!-- EJ1 -->
+		<div class="card">
+			<div class="card-header">Ejercicio 1 – JS básico</div>
+			<div class="card-body">
+				<form id="bs-form-ej1" class="row g-3" novalidate>
+					<div class="col-md-6">
+						<label for="usuario" class="form-label">Usuario</label>
+						<input class="form-control" type="text" name="usuario">
+					</div>
+					<div class="col-md-6">
+						<label for="clave" class="form-label">Contraseña</label>
+						<input class="form-control" type="password" name="clave">
+					</div>
+					<div class="col-12">
+						<button class="btn btn-primary" type="submit">Enviar</button>
+					</div>
+				</form>
+				<div id="bs-msg-ej1" class="mt-2"></div>
+			</div>
+		</div>
+		<!-- Fin EJ1 -->
+		<!-- Ejercicio 2 -->
+		<div class="card">
+			<div class="card-header">Formulario</div>
+			<div class="card-body">
+				<form id="form-ej2" class="row g-3">
+					<div class="col-md-6">
+						<label for="email" class="form-label">Email</label>
+						<input id="email" name="email" type="email" class="form-control" required>
+					</div>
+
+					<div class="col-md-3">
+						<label for="edad" class="form-label">Edad</label>
+						<input id="edad" name="edad" type="number" class="form-control" min="18" max="120" required>
+					</div>
+
+					<div class="col-md-6">
+						<label for="clave" class="form-label">Contraseña</label>
+						<input id="clave" name="clave" type="password" class="form-control" minlength="6" required>
+						<div class="form-text">Mínimo 6 caracteres</div>
+					</div>
+
+					<div class="col-12">
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</form>
+
+				<!-- Div donde se mostrará el mensaje -->
+				<div id="mensaje-resultado" class="mt-3"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Fin Ejercicio 2 -->
+	<!-- Ejercicio 3-->
+	<div class="card">
+		<div class="card-header">Formulario</div>
+		<div class="card-body">
+			<form id="form-ej3" class="row g-3">
+				<div class="col-md-8">
+					<label for="nombre" class="form-label">Nombre y apellidos</label>
+					<input id="nombre" type="text" class="form-control" name="nombre" required
+						pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\- ]+"
+						title="Solo se permiten letras, espacios y guiones. Ejemplo: Jose Perez-Garcia">
+				</div>
+
+				<div class="col-12">
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+			</form>
+
+			<!-- Mensaje debajo del formulario -->
+			<div id="mensaje-ej3" class="mt-3"></div>
+		</div>
+	</div>
+	</div>
+	<!-- Fin Ejercicio 3 -->
+	<!-- Ejercicio 4-->
+	<div class="card mt-4">
+    <div class="card-header">Ejercicio 4 – Coincidencia de contraseñas</div>
+    <div class="card-body">
+        <form id="form-ej4" class="row g-3" novalidate>
+
+            <div class="col-md-6">
+                <label for="pass1" class="form-label">Contraseña</label>
+                <input id="pass1" name="pass1" type="password" class="form-control" minlength="6" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="pass2" class="form-label">Repetir contraseña</label>
+                <input id="pass2" name="pass2" type="password" class="form-control" minlength="6" required>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+
+        <!-- Mensaje debajo del formulario -->
+        <div id="mensaje-ej4" class="mt-3"></div>
+    </div>
+</div>
+<!-- Ejercicio 5 -->
+<div class="card">
+        <div class="card-header">Ejercicio 5 – Registro completo</div>
+        <div class="card-body">
+
+            <form id="bs-form-ej5" class="row g-3" novalidate>
+                <div class="col-md-6">
+                    <label class="form-label">Nombre y apellidos</label>
+                    <input type="text" name="nombre"
+                           pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\- ]+"
+                           required class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" required class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Edad</label>
+                    <input type="number" name="edad" min="16" max="120" required class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" name="clave1" minlength="6" required class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Repetir contraseña</label>
+                    <input type="password" name="clave2" minlength="6" required class="form-control">
+                </div>
+                <div class="col-12">
+                    <label class="form-check-label">
+                        <input type="checkbox" name="terminos" required class="form-check-input">
+                        Acepto los términos
+                    </label>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-success" type="submit">Enviar</button>
+                </div>
+            </form>
+
+            <div id="bs-msg-ej5" class="mt-2"></div>
+        </div>
+    </div>
+
+	<!-- Bootstrap 5 JS (bundle con Popper) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script>
+		document.getElementById('bs-form-ej1').addEventListener('submit', function (e) {
+			e.preventDefault(); // Evita el envío automático
+
+			// Obtenemos valores y eliminamos espacios en blanco
+			const usuario = this.usuario.value.trim();
+			const clave = this.clave.value.trim();
+
+			// Capturamos el div donde se mostrarán los mensajes
+			const mensaje = document.getElementById('bs-msg-ej1');
+
+			// Validación: ambos campos obligatorios
+			if (usuario === '' || clave === '') {
+				mensaje.innerHTML = '<div class="alert alert-danger">Ambos campos son obligatorios.</div>';
+				return; // Salimos, no enviamos
+			}
+
+			// Si pasa la validación, mostramos éxito
+			mensaje.innerHTML = '<div class="alert alert-success">Formulario enviado correctamente.</div>';
+			this.reset(); // limpia los campos
+		});
+
+	</script>
+
+	<script>
+		document.getElementById('form-ej2').addEventListener('submit', function (e) {
+			e.preventDefault(); // Evita el envío real
+
+			const mensaje = document.getElementById('mensaje-resultado');
+
+			// Validación HTML5 nativa
+			if (this.checkValidity()) {
+				mensaje.innerHTML = '<div class="alert alert-success">Formulario enviado correctamente .</div>';
+				this.reset(); // Limpia los campos
+			} else {
+				this.reportValidity(); // Muestra los mensajes de error nativos
+				mensaje.innerHTML = ''; // Limpia mensajes previos
+			}
+		});
+	</script>
+	<script>
+		document.getElementById('form-ej3').addEventListener('submit', function (e) {
+			e.preventDefault(); // Evita el envío real
+
+			// Usamos 'this' para referirnos al formulario actual
+			const nombre = this.nombre.value.trim();
+			const mensaje = document.getElementById('mensaje-ej3');
+
+			// Validación con HTML5 y pattern
+			if (this.checkValidity()) {
+				mensaje.innerHTML = '<div class="alert alert-success">Formulario enviado correctamente.</div>';
+				this.reset(); // Limpia los campos
+			} else {
+				this.reportValidity(); // Muestra los mensajes nativos del navegador
+				mensaje.innerHTML = ''; // Limpia mensajes previos
+			}
+		});
+	</script>
+	<script>
+document.getElementById('form-ej4').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const pass1 = this.pass1.value.trim();
+    const pass2 = this.pass2.value.trim();
+    const mensaje = document.getElementById('mensaje-ej4');
+
+    // Primero, validación nativa HTML5
+    if (!this.checkValidity()) {
+        this.reportValidity();
+        mensaje.innerHTML = '';
+        return;
+    }
+
+    // Validación de coincidencia
+    if (pass1 !== pass2) {
+        mensaje.innerHTML = '<div class="alert alert-danger">Las contraseñas no coinciden.</div>';
+        return;
+    }
+
+    // Si todo está bien
+    mensaje.innerHTML = '<div class="alert alert-success">Registro completado correctamente.</div>';
+    this.reset();
+});
+</script>
+<script>
+document.getElementById("bs-form-ej5").addEventListener("submit", function(e){
+    if(!this.checkValidity()){
+        e.preventDefault();
+        this.reportValidity();
+        return;
+    }
+    e.preventDefault();
+
+    if(this.clave1.value !== this.clave2.value){
+        document.getElementById("bs-msg-ej5").innerHTML =
+            `<div class="alert alert-danger">Las contraseñas no coinciden.</div>`;
+        return;
+    }
+
+    const datos = {
+        nombre: this.nombre.value,
+        email: this.email.value,
+        edad: this.edad.value,
+        acepta_terminos: this.terminos.checked
+    };
+
+    document.getElementById("bs-msg-ej5").innerHTML =
+        `<div class="alert alert-success"><strong>Datos enviados:</strong><br>${JSON.stringify(datos)}</div>`;
+});
+
+</script>
+</body>
+
+</html>
